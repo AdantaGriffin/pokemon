@@ -1,0 +1,18 @@
+.details{
+    height: 90vh;
+    font-family: serif;
+    color: black;
+    .detailsStyle{
+        border: 1px solid red;
+        img{
+            border: 1px solid red;
+            border-radius: 20px;
+        }
+    }
+    .data{
+        background: rgba(230, 224, 224, 0.5);
+    }
+    .flavor{
+        background: rgba(230, 224, 224, 0.5);
+    }
+}

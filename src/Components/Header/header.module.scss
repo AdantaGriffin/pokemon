@@ -1,0 +1,35 @@
+.header{
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-content: center;
+    font-family: "Pokemon Solid";
+    .headerTitle{
+        line-height: .01;
+        text-align: center;
+        color: yellow;
+        background-image: url('../../../public/Images/pokeBanner.png');
+        background-repeat: no-repeat;
+        background-size: 60% 100%;
+        background-position-x: center;
+    }
+    .h1{
+        font-size: clamp(50px, 7vw, 75px);
+        letter-spacing:15px;
+        -webkit-text-stroke: 5px blue;
+    }
+    .h2{
+        font-size: clamp(10px, 5vw, 40px);
+        -webkit-text-stroke: 3px blue;
+    }
+    img{
+        height: 100px;
+        width: 80%;
+        margin: auto;
+    }
+    //background-image: url('../../../public/Images/pokeBanner.png');
+    //background-size: 50% 100%;
+    //background-repeat: no-repeat;
+    //border: 1px solid red;
+    //background-position: center;
+}
