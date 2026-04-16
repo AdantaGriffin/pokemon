@@ -67,9 +67,10 @@ function Home() {
     const toTop = () => window.scrollTo(0, 0);
 
     useEffect(() => {
+    const delay = setTimeout(() => {
         async function getData() {
             const response = await fetch(
-                `https://api.pokemontcg.io/v2/cards?q=${text}`
+                `https://api.pokemontcg.io/v2/cards?q=${text}&page=${page}&pageSize=20`
             );
             const result = await response.json();
             setData(result.data);
@@ -77,7 +78,10 @@ function Home() {
         }
 
         getData();
-    }, [page, text]);
+    }, 300);
+
+    return () => clearTimeout(delay);
+}, [text, page]);
 
     const handleTextChange = (event) => {
         setText(event.target.value.toLowerCase()); 
@@ -96,7 +100,7 @@ function Home() {
         
                 <div className={styles.cardContainer}>
                     {data && data.length > 0 ? (
-                        data?.filter(findPokemon(text)).map(card => (
+                        data?.map(card => (
                             <Card key={card.id} card={card} />
                         ))
                     ) : (

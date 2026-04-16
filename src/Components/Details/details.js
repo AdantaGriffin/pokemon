@@ -12,11 +12,12 @@ function Details(){
         async function getDetails(){
             const response = await fetch(`https://api.pokemontcg.io/v2/cards`);
             const result = await response.json();
-            console.log(result.data);
+            //console.log(result.data);
             setDetails(result.data);
         }
         getDetails()
-    }, [])
+    }, []);
+    console.log(filteredData)
     return (
         <>
             <section className={styles.details}>
