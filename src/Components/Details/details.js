@@ -5,34 +5,33 @@ import { motion } from 'motion/react';
 
 function Details(){
     const {id} = useParams();
-    const [details, setDetails] = useState([]);
-    const filteredData = details.filter(x => x.id === id);
+    const [details, setDetails] = useState(null);
 //console.log(filteredData);
     useEffect(() => {
         async function getDetails(){
-            const response = await fetch(`https://api.pokemontcg.io/v2/cards`);
+            const response = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`);
             const result = await response.json();
             //console.log(result.data);
             setDetails(result.data);
         }
         getDetails()
-    }, []);
-    console.log(filteredData)
+    }, [id]);
+    console.log(details)
     return (
         <>
             <section className={styles.details}>
                 
-                {filteredData.length > 0 ? (
-                    <div className={styles.detailsStyle} key={filteredData[0].id}>
-                        <img className={styles.detailImg} src={filteredData[0].images.small} alt={filteredData[0].name} />
+                {details ? (
+                    <div className={styles.detailsStyle} key={details.id}>
+                        <img className={styles.detailImg} src={details.images.small} alt={details.name} />
                         <div className={styles.data}>
-                            <h3>{filteredData[0].name}</h3>
-                            <p>Set: {filteredData[0].set.name}</p>
-                            <p>Rarity: {filteredData[0].rarity}</p>
-                            <p>{filteredData[0].cardmarket.prices.trendPrice}</p>
+                            <h3>{details.name}</h3>
+                            <p>Set: {details.set.name}</p>
+                            <p>Rarity: {details.rarity}</p>
+                            <p>Price: ${details.cardmarket ? details.cardmarket.prices.averageSellPrice : details.tcgplayer.prices.holofoil.market}</p>
                         </div>
                         <p className={styles.flavor}>
-                            {filteredData[0].flavorText}
+                            {details.flavorText}
                         </p>
                     </div>
                 
