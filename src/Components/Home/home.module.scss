@@ -1,18 +1,32 @@
 section {
     position: relative;
     font-family: "Pokemon Solid";
-    color: black;
-    text-shadow: 2px 2px 10px yellow;
-    height: 120vh;
+    min-height: 110vh;
 }
 .home{
-    overflow-x: scroll;
+    color: yellow;
+    text-shadow: 5px 5px 10px blue;
+    padding: 10px;
+    input{
+        border: 1px solid lightgrey;
+        width: 75%;
+        height: 50px;
+        display: block;
+        margin: auto;
+        font-size: 1.1em;
+        &:active {
+            border: 2px solid blue;
+        }
+    }
 }
 section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../../../public/Images/landscape.jpg') no-repeat center/cover;
+    background: url('../../../public/Images/landscape.jpg');
+    background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
     opacity: 0.5; /* adjust opacity here */
     z-index: -1;
 }
@@ -28,9 +42,9 @@ section::before {
     padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     gap: 70px;
-    border: 1px solid red;
-    overflow-y: scroll;
+    height: 50vh;
     .card{
         min-width: 250px;
         box-shadow: 1px 1px 20px black;

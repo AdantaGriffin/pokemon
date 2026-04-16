@@ -2,11 +2,19 @@
     height: 90vh;
     font-family: serif;
     color: black;
+    align-content: center;
+    font-family: "M PLUS 1 Code";
+    img{
+        display: block;
+        margin: auto;
+    }
     .detailsStyle{
-        border: 1px solid red;
+        font-size: clamp(18px, 2vw, 20px);
+        margin: auto;
         img{
-            border: 1px solid red;
             border-radius: 20px;
+            display: block;
+            margin: auto;
         }
     }
     .data{
@@ -14,5 +22,11 @@
     }
     .flavor{
         background: rgba(230, 224, 224, 0.5);
+        min-height: 200px;
+        align-content: center;
+        text-align: center;
+    }
+    .loading{
+        text-align: center;
     }
 }

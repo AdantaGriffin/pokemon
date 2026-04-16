@@ -1,12 +1,13 @@
 import styles from './details.module.scss';
 import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import { motion } from 'motion/react';
 
 function Details(){
     const {id} = useParams();
     const [details, setDetails] = useState([]);
     const filteredData = details.filter(x => x.id === id);
-console.log(filteredData);
+//console.log(filteredData);
     useEffect(() => {
         async function getDetails(){
             const response = await fetch(`https://api.pokemontcg.io/v2/cards`);
@@ -19,23 +20,37 @@ console.log(filteredData);
     return (
         <>
             <section className={styles.details}>
+                
                 {filteredData.length > 0 ? (
-                filteredData.map(card => (
-                    <div className={styles.detailsStyle} key={card.id}>
-                        <img src={card.images.small} alt={card.name} />
+                    <div className={styles.detailsStyle} key={filteredData[0].id}>
+                        <img src={filteredData[0].images.small} alt={filteredData[0].name} />
                         <div className={styles.data}>
-                            <h3>{card.name}</h3>
-                            <p>Set: {card.set.name}</p>
-                            <p>Rarity: {card.rarity}</p>
-                            <p>{card.cardmarket.prices.trendPrice}</p>
+                            <h3>{filteredData[0].name}</h3>
+                            <p>Set: {filteredData[0].set.name}</p>
+                            <p>Rarity: {filteredData[0].rarity}</p>
+                            <p>{filteredData[0].cardmarket.prices.trendPrice}</p>
                         </div>
                         <p className={styles.flavor}>
-                            {card.flavorText}
+                            {filteredData[0].flavorText}
                         </p>
                     </div>
-                ))
+                
             ) : (
-                <p>Loading card details...</p>
+                <>
+                    <motion.img 
+                    alt="ivysaur" 
+                    src={'/Images/pokeball.png'} 
+                    width="40px"
+                    animate={{rotate:360}}
+                    transition={{
+                        repeat: Infinity,
+                        duration: 2,
+                        ease: "linear"
+                    }}/>
+                    
+
+                    <p className={styles.loading}>Loading card details...</p>
+                </>
             )}
 
             </section>
