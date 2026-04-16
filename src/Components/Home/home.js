@@ -40,7 +40,10 @@ function Card({ card }) {
                 <motion.div
                     onMouseMove={handleMovement}
                     onMouseLeave={mouseLeave}
+                    onPointerMove={handleMovement}
+                    onPointerLeave={mouseLeave}
                     onClick={handleClick}
+                    whileTap={{ scale: 0.95 }}
                     style={{
                         rotateX: smoothX,
                         rotateY: smoothY,
