@@ -49,6 +49,7 @@ function Card({ card }) {
                         rotateY: smoothY,
                         transformStyle: "preserve-3d",
                         willChange: "transform",
+                        touchAction: "none"
                     }}
                     whileHover={{ cursor:'pointer' }} // optional pop effect
                 >
