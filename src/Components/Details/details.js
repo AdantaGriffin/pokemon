@@ -23,7 +23,7 @@ function Details(){
                 
                 {filteredData.length > 0 ? (
                     <div className={styles.detailsStyle} key={filteredData[0].id}>
-                        <img src={filteredData[0].images.small} alt={filteredData[0].name} />
+                        <img className={styles.detailImg} src={filteredData[0].images.small} alt={filteredData[0].name} />
                         <div className={styles.data}>
                             <h3>{filteredData[0].name}</h3>
                             <p>Set: {filteredData[0].set.name}</p>
@@ -38,6 +38,7 @@ function Details(){
             ) : (
                 <>
                     <motion.img 
+                    className={styles.imgDetail}
                     alt="ivysaur" 
                     src={'/Images/pokeball.png'} 
                     width="40px"

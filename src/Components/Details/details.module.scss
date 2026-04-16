@@ -4,14 +4,14 @@
     color: black;
     align-content: center;
     font-family: "M PLUS 1 Code";
-    img{
+    .imgDetail{
         display: block;
         margin: auto;
     }
     .detailsStyle{
         font-size: clamp(18px, 2vw, 20px);
         margin: auto;
-        img{
+        .detailImg{
             border-radius: 20px;
             display: block;
             margin: auto;
